@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PagomóvilBDV</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+
+        <!-- ===== SCREEN 1: FORM ===== -->
+        <div id="screen-form" class="screen active">
+            <div class="header">
+                <div class="header-left">
+                    <div class="bell-wrap">
+                        <span class="material-icons-outlined">notifications_none</span>
+                        <span class="badge">312</span>
+                    </div>
+                    <span class="header-title">PagomóvilBDV</span>
+                </div>
+                <div class="menu-icon">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+
+            <div class="actions-row">
+                <div class="action-left">
+                    <div class="action-circle"><span class="material-icons-outlined">edit_note</span></div>
+                    <span>Pegar datos</span>
+                </div>
+                <div class="action-right">
+                    <span>Leer datos</span>
+                    <div class="action-circle"><span class="material-icons-outlined">qr_code_scanner</span></div>
+                </div>
+            </div>
+
+            <div class="form-scroll">
+                <!-- Operación -->
+                <div class="field">
+                    <label class="flabel populated">Operación:</label>
+                    <div class="select-wrap">
+                        <select id="op-type">
+                            <option>Personas</option>
+                            <option>Comercios</option>
+                            <option>Comunas</option>
+                        </select>
+                        <span class="material-icons-outlined arrow">arrow_drop_down</span>
+                    </div>
+                </div>
+
+                <!-- Documento -->
+                <div class="field doc-field">
+                    <div class="doc-input-wrap">
+                        <label class="flabel" id="lbl-doc">Documento:</label>
+                        <input type="text" id="documento" placeholder="Documento:" inputmode="numeric">
+                    </div>
+                    <button class="person-btn" disabled>
+                        <span class="material-icons-outlined">person_search</span>
+                    </button>
+                </div>
+
+                <!-- Banco -->
+                <div class="field">
+                    <label class="flabel populated">Banco:</label>
+                    <div class="select-wrap">
+                        <select id="banco">
+                            <option>0102 - BANCO DE VENEZUELA</option>
+                            <option>0156 - 100% BANCO</option>
+                            <option>0172 - BANCAMIGA BANCO UNIVERSAL, C.A.</option>
+                            <option>0114 - BANCARIBE</option>
+                            <option>0171 - BANCO ACTIVO</option>
+                            <option>0128 - BANCO CARONÍ</option>
+                            <option>0163 - BANCO DEL TESORO</option>
+                            <option>0175 - BANCO DIGITAL DE LOS TRABAJADORES, BANCO UNIVERSAL</option>
+                            <option>0115 - BANCO EXTERIOR</option>
+                            <option>0151 - BANCO FONDO COMÚN</option>
+                            <option>0105 - BANCO MERCANTIL</option>
+                            <option>0191 - BANCO NACIONAL DE CREDITO</option>
+                            <option>0138 - BANCO PLAZA</option>
+                            <option>0137 - BANCO SOFITASA</option>
+                            <option>0104 - BANCO VENEZOLANO DE CREDITO</option>
+                            <option>0168 - BANCRECER</option>
+                            <option>0134 - BANESCO</option>
+                            <option>0177 - BANFANB</option>
+                            <option>0146 - BANGENTE</option>
+                            <option>0174 - BANPLUS</option>
+                            <option>0108 - BBVA PROVINCIAL</option>
+                            <option>0157 - DELSUR BANCO UNIVERSAL</option>
+                            <option>0601 - INSTITUTO MUNICIPAL DE CREDITO POPULAR</option>
+                            <option>0178 - N58 BANCO DIGITAL BANCO MICROFINANCIERO S A</option>
+                            <option>0169 - R4 BANCO MICROFINANCIERO C.A.</option>
+                        </select>
+                        <span class="material-icons-outlined arrow">arrow_drop_down</span>
+                    </div>
+                </div>
+
+                <!-- Teléfono -->
+                <div class="field">
+                    <label class="flabel" id="lbl-tel">Teléfono:</label>
+                    <input type="tel" id="telefono" placeholder="Teléfono:" inputmode="numeric">
+                </div>
+
+                <!-- Monto -->
+                <div class="field">
+                    <label class="flabel" id="lbl-monto">Monto:</label>
+                    <input type="text" id="monto" placeholder="Monto:" class="align-right" inputmode="decimal">
+                </div>
+
+                <!-- Concepto -->
+                <div class="field">
+                    <label class="flabel" id="lbl-concepto">Concepto:</label>
+                    <input type="text" id="concepto" placeholder="Concepto:">
+                </div>
+
+                <div class="btn-row">
+                    <button class="btn-pink" id="btn-pagar">Pagar</button>
+                    <button class="btn-pink" id="btn-limpiar">Limpiar</button>
+                </div>
+
+                <div class="limites">
+                    <span class="material-icons-outlined lim-icon">phone_android</span>
+                    <span class="lim-text">Límites de operaciones</span>
+                </div>
+            </div>
+
+            <nav class="bottom-nav">
+                <div class="nav-item"><span class="material-icons-outlined">person_outline</span><span>Inicio</span></div>
+                <div class="nav-item"><span class="material-icons-outlined">swap_horiz</span><span>Transfer...</span></div>
+                <div class="nav-item on"><span class="material-icons-outlined">payments</span><span>Pagos</span></div>
+                <div class="nav-item"><span class="material-icons-outlined">apps</span><span>Servicios</span></div>
+                <div class="nav-item">
+                    <svg class="nav-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 7v13a2.5 2.5 0 0 0 2.5 2.5H18"></path>
+                        <rect x="5" y="3" width="16" height="16" rx="2.5"></rect>
+                        <text x="13" y="14" font-size="8.5" font-weight="800" font-family="sans-serif" text-anchor="middle" fill="currentColor" stroke="none">101</text>
+                    </svg>
+                    <span>Divisas</span>
+                </div>
+                <div class="nav-item"><span class="material-icons-outlined">credit_card</span><span>Tarjeta</span></div>
+            </nav>
+        </div>
+
+        <!-- ===== SCREEN 2: CONFIRMAR ===== -->
+        <div id="screen-confirm" class="screen">
+            <div class="confirm-hdr">
+                <h2>Confirmar Operación</h2>
+                <button class="x-btn" id="btn-close-confirm"><span class="material-icons-outlined">close</span></button>
+            </div>
+            <div class="confirm-body">
+                <h3 id="c-title">PagomóvilBDV Personas</h3>
+                <div class="monto-box"><span id="c-monto"></span></div>
+                <div class="info-rows">
+                    <div class="info-r"><span>Identificación:</span><span id="c-doc"></span></div>
+                    <div class="info-r"><span>Destino:</span><span id="c-dest"></span></div>
+                    <div class="info-r"><span>Banco:</span><span id="c-banco"></span></div>
+                    <div class="info-r"><span>Concepto:</span><span id="c-concepto"></span></div>
+                </div>
+                <button class="btn-confirmar" id="btn-confirmar">Confirmar</button>
+            </div>
+        </div>
+
+        <!-- ===== LOADING OVERLAY ===== -->
+        <div id="loading-overlay" class="loading-overlay">
+            <div class="load-box">
+                <div class="spinner"></div>
+                <p>Realizando operación</p>
+            </div>
+        </div>
+
+        <!-- ===== FACE ID OVERLAY ===== -->
+        <div id="faceid-overlay" class="faceid-overlay">
+            <div class="faceid-box" id="faceid-box">
+                <!-- SVG Face ID icon -->
+                <svg id="faceid-svg" width="75" height="75" viewBox="0 0 24 24" fill="none" stroke="#34C759" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M7 3H5C3.89543 3 3 3.89543 3 5V7"></path>
+                    <path d="M17 3H19C20.1046 3 21 3.89543 21 5V7"></path>
+                    <path d="M7 21H5C3.89543 21 3 20.1046 3 19V17"></path>
+                    <path d="M17 21H19C20.1046 21 21 20.1046 21 19V17"></path>
+                    <path d="M9 10C9 10.01 9 10.02 9 10.03"></path>
+                    <path d="M15 10C15 10.01 15 10.02 15 10.03"></path>
+                    <path d="M12 10V14"></path>
+                    <path d="M9 16.5C9.8 17.5 11 18 12 18C13 18 14.2 17.5 15 16.5"></path>
+                </svg>
+                <!-- Check icon for success (SVG animated) -->
+                <svg class="faceid-check-svg" id="faceid-check" viewBox="0 0 52 52" style="display:none;">
+                    <circle class="checkmark__circle" cx="26" cy="26" r="23" fill="none" />
+                    <path class="checkmark__check" fill="none" d="M14 27 l 8 8 l 16 -17" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- ===== SCREEN 3: COMPROBANTE ===== -->
+        <div id="screen-receipt" class="screen">
+            <div class="receipt-hdr">
+                <button class="icon-btn" id="btn-back-top"><span class="material-icons-outlined">chevron_left</span></button>
+                <h2>Comprobante de operación</h2>
+                <button class="icon-btn" disabled><span class="material-icons-outlined">share</span></button>
+            </div>
+            <div class="receipt-body">
+                <div class="bdv-logo">
+                    <img src="logo_bdv.png" alt="BDV Logo" height="110">
+                </div>
+                <h3 id="r-title">Transferencias a terceros</h3>
+                <div class="check-circle-white">
+                    <span class="material-icons">check</span>
+                </div>
+                <div class="monto-box-receipt"><span id="r-monto"></span></div>
+                <div class="info-rows receipt-rows">
+                    <div class="info-r"><span>Fecha:</span><span id="r-fecha"></span></div>
+                    <div class="info-r"><span>Operación:</span><span class="with-copy"><span id="r-op"></span><button class="copy-btn" id="btn-copy"><span class="material-icons-outlined">content_copy</span></button></span></div>
+                    <div class="info-r"><span>Nombre:</span><span id="r-nombre">Sharlet Sailet Querequechua Fugueroa</span></div>
+                    <div class="info-r"><span>Origen:</span><span id="r-origen"></span></div>
+                    <div class="info-r"><span>Destino:</span><span id="r-destino"></span></div>
+                    <div class="info-r"><span>Concepto:</span><span id="r-concepto"></span></div>
+                </div>
+                <div class="receipt-footer">
+                    <button class="icon-btn back-center" id="btn-back-home"><span class="material-icons-outlined">arrow_back</span></button>
+                    <div class="toggle-row">
+                        <label class="toggle"><input type="checkbox" disabled><span class="slider"></span></label>
+                        <span>Crear Acceso directo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
