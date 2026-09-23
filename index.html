@@ -17,7 +17,7 @@
                 <div class="header-left">
                     <div class="bell-wrap">
                         <span class="material-icons-outlined">notifications_none</span>
-                        <span class="badge">312</span>
+                        <span class="badge">156</span>
                     </div>
                     <span class="header-title">PagomóvilBDV</span>
                 </div>
@@ -28,7 +28,7 @@
 
             <div class="actions-row">
                 <div class="action-left">
-                    <div class="action-circle"><span class="material-icons-outlined">edit_note</span></div>
+                    <div class="action-circle"><span class="material-icons-outlined">content_paste</span></div>
                     <span>Pegar datos</span>
                 </div>
                 <div class="action-right">
@@ -121,24 +121,17 @@
                 </div>
 
                 <div class="limites">
-                    <span class="material-icons-outlined lim-icon">phone_android</span>
+                    <span class="material-icons-outlined lim-icon">phone_iphone</span>
                     <span class="lim-text">Límites de operaciones</span>
                 </div>
             </div>
 
             <nav class="bottom-nav">
-                <div class="nav-item"><span class="material-icons-outlined">person_outline</span><span>Inicio</span></div>
+                <div class="nav-item"><span class="material-icons-outlined">people_outline</span><span>Inicio</span></div>
                 <div class="nav-item"><span class="material-icons-outlined">swap_horiz</span><span>Transfer...</span></div>
                 <div class="nav-item on"><span class="material-icons-outlined">payments</span><span>Pagos</span></div>
                 <div class="nav-item"><span class="material-icons-outlined">apps</span><span>Servicios</span></div>
-                <div class="nav-item">
-                    <svg class="nav-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M3 7v13a2.5 2.5 0 0 0 2.5 2.5H18"></path>
-                        <rect x="5" y="3" width="16" height="16" rx="2.5"></rect>
-                        <text x="13" y="14" font-size="8.5" font-weight="800" font-family="sans-serif" text-anchor="middle" fill="currentColor" stroke="none">101</text>
-                    </svg>
-                    <span>Divisas</span>
-                </div>
+                <div class="nav-item"><span class="material-icons-outlined">currency_exchange</span><span>Divisas</span></div>
                 <div class="nav-item"><span class="material-icons-outlined">credit_card</span><span>Tarjeta</span></div>
             </nav>
         </div>
@@ -195,25 +188,24 @@
         <!-- ===== SCREEN 3: COMPROBANTE ===== -->
         <div id="screen-receipt" class="screen">
             <div class="receipt-hdr">
-                <button class="icon-btn" id="btn-back-top"><span class="material-icons-outlined">chevron_left</span></button>
+                <button class="icon-btn" id="btn-back-top"><span class="material-icons-outlined">arrow_back</span></button>
                 <h2>Comprobante de operación</h2>
                 <button class="icon-btn" disabled><span class="material-icons-outlined">share</span></button>
             </div>
             <div class="receipt-body">
                 <div class="bdv-logo">
-                    <img src="logo_bdv.png" alt="BDV Logo" height="110">
+                    <img src="logo_bdv.png" alt="BDV Logo" height="130">
                 </div>
-                <h3 id="r-title">Transferencias a terceros</h3>
-                <div class="check-circle-white">
-                    <span class="material-icons">check</span>
-                </div>
-                <div class="monto-box-receipt"><span id="r-monto"></span></div>
+                <h3 id="r-title">PagomóvilBDV Personas</h3>
+                <span class="material-icons check-icon">check_circle</span>
+                <div class="monto-box"><span id="r-monto"></span></div>
                 <div class="info-rows receipt-rows">
                     <div class="info-r"><span>Fecha:</span><span id="r-fecha"></span></div>
                     <div class="info-r"><span>Operación:</span><span class="with-copy"><span id="r-op"></span><button class="copy-btn" id="btn-copy"><span class="material-icons-outlined">content_copy</span></button></span></div>
-                    <div class="info-r"><span>Nombre:</span><span id="r-nombre">Sharlet Sailet Querequechua Fugueroa</span></div>
+                    <div class="info-r"><span>Identificación:</span><span id="r-id"></span></div>
                     <div class="info-r"><span>Origen:</span><span id="r-origen"></span></div>
                     <div class="info-r"><span>Destino:</span><span id="r-destino"></span></div>
+                    <div class="info-r"><span>Banco:</span><span id="r-banco"></span></div>
                     <div class="info-r"><span>Concepto:</span><span id="r-concepto"></span></div>
                 </div>
                 <div class="receipt-footer">
