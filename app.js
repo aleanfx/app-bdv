@@ -108,19 +108,24 @@ function show(target) {
     });
 }
 
+// === TRANSACTION STATE ===
+let currentTxData = { doc: '', tel: '', monto: '', banco: '', concepto: '', opType: '', montoTxt: '' };
+
 // === PAGAR ===
 btnPagar.addEventListener('click', () => {
     const d = doc.value.trim();
     const t = tel.value.trim();
     const m = monto.value.trim();
     const c = concepto.value.trim();
+    const b = bancoSelect.value;
+    const op = opType.value;
 
     if (!d || !t || !m || !c) {
         [doc, tel, monto, concepto].forEach(inp => {
             if (!inp.value.trim()) {
                 inp.style.borderColor = '#E91E63';
                 inp.style.animation = 'shake .4s ease';
-                setTimeout(() => { inp.style.animation = ''; inp.style.borderColor = '#555'; }, 500);
+                setTimeout(() => { inp.style.animation = ''; inp.style.borderColor = '#666'; }, 500);
             }
         });
         return;
@@ -132,12 +137,15 @@ btnPagar.addEventListener('click', () => {
         const n = parseFloat(m.replace(',', '.'));
         if (!isNaN(n)) montoTxt = n.toFixed(2).replace('.', ',') + ' Bs';
     }
+
+    currentTxData = { doc: d, tel: t, monto: m, banco: b, concepto: c, opType: op, montoTxt: montoTxt };
+
     document.getElementById('c-monto').textContent = montoTxt;
     document.getElementById('c-doc').textContent = d;
     document.getElementById('c-dest').textContent = t;
-    document.getElementById('c-banco').textContent = bancoSelect.value;
+    document.getElementById('c-banco').textContent = b;
     document.getElementById('c-concepto').textContent = c;
-    document.getElementById('c-title').textContent = 'PagomóvilBDV ' + opType.value;
+    document.getElementById('c-title').textContent = 'PagomóvilBDV ' + op;
 
     show(screenConfirm);
 });
@@ -191,15 +199,15 @@ btnConfirmar.addEventListener('click', () => {
             loadingOverlay.classList.remove('show');
 
             // Llenar comprobante
-            document.getElementById('r-monto').textContent = document.getElementById('c-monto').textContent;
+            document.getElementById('r-monto').textContent = currentTxData.montoTxt;
             document.getElementById('r-fecha').textContent = getDate();
             document.getElementById('r-op').textContent = randNum(12);
-            document.getElementById('r-id').textContent = document.getElementById('c-doc').textContent;
+            document.getElementById('r-id').textContent = currentTxData.doc;
             document.getElementById('r-origen').textContent = '0102****' + randNum(4);
-            const destVal = document.getElementById('c-dest').textContent;
+            const destVal = currentTxData.tel;
             document.getElementById('r-destino').textContent = destVal.startsWith('0102') ? destVal : '0102****' + (destVal.length >= 4 ? destVal.slice(-4) : randNum(4));
-            document.getElementById('r-banco').textContent = document.getElementById('c-banco').textContent;
-            document.getElementById('r-concepto').textContent = document.getElementById('c-concepto').textContent;
+            document.getElementById('r-banco').textContent = currentTxData.banco;
+            document.getElementById('r-concepto').textContent = currentTxData.concepto;
             document.getElementById('r-title').textContent = 'Transferencias a terceros';
 
             show(screenReceipt);
