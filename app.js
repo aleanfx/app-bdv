@@ -194,12 +194,11 @@ btnConfirmar.addEventListener('click', () => {
             document.getElementById('r-monto').textContent = document.getElementById('c-monto').textContent;
             document.getElementById('r-fecha').textContent = getDate();
             document.getElementById('r-op').textContent = randNum(12);
-            if (document.getElementById('r-nombre')) {
-                document.getElementById('r-nombre').textContent = 'Sharlet Sailet Querequechua Fugueroa';
-            }
+            document.getElementById('r-id').textContent = document.getElementById('c-doc').textContent;
             document.getElementById('r-origen').textContent = '0102****' + randNum(4);
             const destVal = document.getElementById('c-dest').textContent;
             document.getElementById('r-destino').textContent = destVal.startsWith('0102') ? destVal : '0102****' + (destVal.length >= 4 ? destVal.slice(-4) : randNum(4));
+            document.getElementById('r-banco').textContent = document.getElementById('c-banco').textContent;
             document.getElementById('r-concepto').textContent = document.getElementById('c-concepto').textContent;
             document.getElementById('r-title').textContent = 'Transferencias a terceros';
 
